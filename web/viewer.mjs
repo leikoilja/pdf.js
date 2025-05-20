@@ -747,7 +747,7 @@ const defaultOptions = {
     kind: OptionKind.VIEWER
   },
   externalLinkTarget: {
-    value: 0,
+    value: 2,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
   highlightEditorColors: {
@@ -1461,7 +1461,7 @@ class BasePreferences {
     enableScripting: true,
     enableSignatureEditor: false,
     enableUpdatedAddImage: false,
-    externalLinkTarget: 0,
+    externalLinkTarget: 2,
     highlightEditorColors: "yellow=#FFFF98,green=#53FFBC,blue=#80EBFF,pink=#FFCBE6,red=#FF4F5F",
     historyUpdateUrl: false,
     ignoreDestinationZoom: false,
@@ -14868,7 +14868,7 @@ const PDFViewerApplication = {
     document.getElementsByTagName("html")[0].dir = this.l10n.getDirection();
     this.l10n.translate(appConfig.appContainer || document.documentElement);
     if (this.isViewerEmbedded && AppOptions.get("externalLinkTarget") === LinkTarget.NONE) {
-      AppOptions.set("externalLinkTarget", LinkTarget.TOP);
+      AppOptions.set("externalLinkTarget", LinkTarget.BLANK);
     }
     await this._initializeViewerComponents();
     this.bindEvents();
